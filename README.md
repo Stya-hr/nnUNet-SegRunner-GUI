@@ -1,4 +1,4 @@
-# Post-Process GUI
+# nnUNet-SegRunner-GUI
 
 简体中文 | English coming soon
 
