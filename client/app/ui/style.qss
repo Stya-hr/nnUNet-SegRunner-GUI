@@ -1,0 +1,191 @@
+/* Modern dark theme */
+
+/* Base */
+QMainWindow, QWidget {
+  background: #1c222b; /* 更冷更浅 */
+  color: #e9edf3;
+}
+
+/* Labels */
+QLabel {
+  color: #dfe6ef;
+}
+
+/* Inputs */
+QLineEdit {
+  background: #1f2733;
+  color: #e9edf3;
+  border: 1px solid #344055;
+  border-radius: 8px;
+  padding: 4px 8px; /* 更紧凑 */
+}
+QLineEdit:focus {
+  border-color: #5cb5ff;
+}
+
+/* Buttons */
+QPushButton {
+  background: #1e2633;
+  color: #e9edf3;
+  border: 1px solid #344055;
+  border-radius: 8px;
+  padding: 4px 10px; /* 更紧凑 */
+}
+QPushButton:hover {
+  background: #243042;
+  border-color: #3e4c66; /* hover 边框更亮，统一 */
+}
+QPushButton:pressed {
+  background: #1a2331;
+  border-color: #2b364a; /* pressed 边框更暗，统一 */
+}
+QPushButton:disabled {
+  background: #18202c; /* 统一禁用态底色 */
+  color: #8a93a3;
+  border-color: #2b364a;
+}
+QPushButton:focus {
+  outline: none;
+  border-color: #5cb5ff; /* 统一焦点高亮 */
+}
+
+/* Primary action button */
+#PrimaryButton {
+  background: #2f85ff;
+  border: 1px solid #2f85ff;
+  color: white;
+}
+#PrimaryButton:hover {
+  background: #4392ff;
+  border-color: #4392ff;
+}
+#PrimaryButton:pressed {
+  background: #2a76e4;
+  border-color: #2a76e4;
+}
+#PrimaryButton:disabled {
+  /* 禁用态使用中性灰蓝，避免绿色偏色 */
+  background: #1f2733;
+  border-color: #2b364a;
+  color: #8a93a3;
+}
+#PrimaryButton:focus {
+  border-color: #9bd1ff;
+}
+
+/* Lists */
+QListWidget {
+  background: #161d28;
+  color: #e9edf3;
+  border: 1px solid #344055;
+  border-radius: 8px;
+}
+QListWidget::item { padding: 4px 6px; }
+QListWidget::item:selected { background: #2a3a52; }
+
+/* Progress bar */
+QProgressBar {
+  border: 1px solid #344055;
+  border-radius: 3px;
+  background: #161d28;
+  min-height: 6px;
+  max-height: 6px;
+}
+QProgressBar::chunk {
+  border-radius: 3px;
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #2f85ff, stop:1 #57d0ff);
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+  background: #1f2733;        /* 更明显的轨道底色 */
+  width: 12px;                 /* 稍微加宽，避免过窄导致看不清 */
+  margin: 4px;                 /* 统一留缝 */
+  border: 1px solid #2b364a;
+  border-radius: 6px;
+}
+QScrollBar::handle:vertical {
+  background: #243042;
+  border: 1px solid #3e4c66;
+  border-radius: 6px;
+  min-height: 24px;
+  margin: 2px;                 /* 留出与轨道的内边距，确保可见 */
+}
+QScrollBar::handle:vertical:hover { background: #2a3a52; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; width: 0px; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: transparent; border: none; }
+
+QScrollBar:horizontal {
+  background: #1f2733;
+  height: 12px;
+  margin: 4px;
+  border: 1px solid #2b364a;
+  border-radius: 6px;
+}
+QScrollBar::handle:horizontal {
+  background: #243042;
+  border: 1px solid #3e4c66;
+  border-radius: 6px;
+  min-width: 24px;
+  margin: 2px;
+}
+QScrollBar::handle:horizontal:hover { background: #2a3a52; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { height: 0px; width: 0px; }
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: transparent; border: none; }
+
+QMenuBar {
+  background: #1c222b;
+  color: #e3e8f0; /* 统一文字颜色 */
+  padding: 0 4px;  /* 更紧凑的水平内边距 */
+  min-height: 20px; /* 更紧凑高度 */
+  border-bottom: 1px solid #2b364a; /* 底部分割线 */
+}
+QMenuBar::item {
+  padding: 2px 6px 2px 12px;   /* 左更大、右更小，进一步靠左 */
+  margin: 2px 0px;             /* 上下留缝，左右0 */
+  border-radius: 6px;          /* 轻圆角 */
+  text-align: left;            /* 尝试左对齐文本 */
+}
+QMenuBar::item:selected {
+  background: #243042; /* 与按钮 hover 保持一致 */
+  color: #ffffff;
+}
+QMenuBar::item:pressed {
+  background: #1a2331; /* 与按钮 pressed 保持一致 */
+}
+QMenuBar::item:disabled {
+  color: #8a93a3; /* 禁用态中性灰蓝 */
+}
+/* fixed duplicate line moved above */
+QMenu {
+  background: #18202b;
+  color: #e9edf3;
+  border: 1px solid #344055;
+  border-radius: 8px;   /* 弹出菜单圆角 */
+  padding: 2px 2px;     /* 极致紧凑内边距 */
+}
+QMenu::item {
+  padding: 4px 10px 4px 20px;  /* 左更大、右更小，进一步靠左 */
+  text-align: left;
+}
+QMenu::item:selected { background: #1d2738; }
+QMenu::item:disabled { color: #7f8899; }
+QMenu::item:checked { background: #254060; }
+QMenu::separator {
+  height: 1px;
+  background: #2b364a;
+  margin: 3px 6px;  /* 更紧凑分隔线外边距 */
+}
+QMenu::indicator {
+  width: 14px;
+  height: 14px;
+}
+/* 移除单独的浏览按钮样式，改为统一按钮风格 */
+
+/* Cards (optional containers) */
+QFrame#Card {
+  background: #171f2a;
+  border: 1px solid #2b374c;
+  border-radius: 10px;
+  padding: 6px; /* 更紧凑 */
+}
