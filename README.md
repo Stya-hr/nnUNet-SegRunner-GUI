@@ -15,44 +15,46 @@
 
 ## 快速开始（Windows）
 
+在仓库根目录或项目目录运行以下命令（示例中使用占位路径，请替换为你的项目路径）：
+
 ```cmd
-cd /d D:\ixcell\post-process
+cd /d D:\path\to\project
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r client\app\requirements.txt
 python -m client.main
 ```
 
-或：
+或直接：
 
 ```cmd
 python client\main.py
 ```
 
-> 提示：若使用本地推理，请确保已在当前环境可调用 `nnUNetv2_predict`，并正确配置 `NNUNET_RESULTS` 指向模型结果目录。
+提示：若使用本地推理，请确保 `nnUNetv2_predict` 可在当前环境中调用，并正确配置 `NNUNET_RESULTS` 指向模型结果目录。
 
 ## 远程推理（可选）
-在安装了 nnU‑Net v2 的远端机器上启动服务：
+在远端机器上启动服务（替换为你的远程服务目录）：
 
 ```cmd
-cd /d D:\ixcell\post-process\remote-service
+cd /d D:\path\to\project\remote-service
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn remote_api:app --host 0.0.0.0 --port 8000
 ```
 
-客户端启用远程模式：
+客户端启用远程模式示例（将 `<REMOTE_HOST_OR_IP>` 替换为实际可访问的主机或域名）：
 
 ```cmd
-set NNUNET_REMOTE_API=http://<远端IP>:8000
+set NNUNET_REMOTE_API=http://<REMOTE_HOST_OR_IP>:8000
 python -m client.main
 ```
 
-建议使用远端可访问的共享路径（如 `\\server\share\case1`）作为输入/输出目录，确保服务进程具备读写权限。
+建议使用远端可访问的共享路径（例如 `\\<file-server>\share\case1`）作为输入/输出目录，确保服务进程具备读写权限。
 
 ## 配置与环境变量
-- `NNUNET_REMOTE_API`：设置为远端服务地址以启用远程模式（例如 `http://192.168.1.10:8000`）。
+- `NNUNET_REMOTE_API`：远端服务地址（示例：`http://<REMOTE_HOST_OR_IP>:8000`）。
 - `NNUNET_RESULTS`：nnU‑Net v2 模型结果目录（用于本地或远端环境）。
 
 ## 使用说明
